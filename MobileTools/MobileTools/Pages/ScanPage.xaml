@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileTools.Pages.ScanPage">
+    <ContentPage.Content>
+		<StackLayout>
+			<StackLayout HorizontalOptions="FillAndExpand" Padding="20">
+				<Label Text="Barcode" TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
+				<Entry x:Name="edtCode" TextColor="Green" FontSize="Medium" Text="" HorizontalOptions="FillAndExpand" IsReadOnly="True" />
+			</StackLayout>
+			<StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand">
+
+			</StackLayout>
+			<StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="End">
+				<StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Padding="20">
+					<Button Text="Main Page" x:Name="btnMainPage" Image="main.jpg" Clicked="btnMainPage_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
+				</StackLayout>
+				<StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Padding="20">
+					<Button Text="Scan" x:Name="btnScan" Image="barcode.jpg"  Clicked="btnScan_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
+				</StackLayout>
+			</StackLayout>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

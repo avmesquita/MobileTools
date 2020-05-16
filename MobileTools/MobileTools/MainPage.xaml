@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileTools.MainPage">
+
+    <StackLayout>
+		<StackLayout>
+			<Frame>
+				<Image Source="avm_logo.png" Aspect="AspectFit" BackgroundColor="White" HeightRequest="180" HorizontalOptions="FillAndExpand"/>
+			</Frame>
+			<StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+				<StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Padding="20">
+					<Button Text="Barcode" x:Name="btnBarcode" Clicked="btnBarcode_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
+				</StackLayout>
+				<StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Padding="20">
+					<Button Text="GPS" x:Name="btnGPS" Clicked="btnGPS_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
+				</StackLayout>
+			</StackLayout>
+			<StackLayout VerticalOptions="FillAndExpand"></StackLayout>
+			<StackLayout Padding="20" BackgroundColor="Silver" VerticalOptions="End">
+				<Button Text="About" x:Name="btnAbout" Image="about.jpg" Clicked="btnAbout_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5"/>
+			</StackLayout>
+		</StackLayout>
+    </StackLayout>
+
+</ContentPage>
