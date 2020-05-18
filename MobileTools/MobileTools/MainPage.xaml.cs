@@ -33,5 +33,10 @@ namespace MobileTools
 		{
 			this.Navigation.PushModalAsync(new GPSPage());
 		}
+
+		private void btnPing_Clicked(object sender, EventArgs e)
+		{
+			this.Navigation.PushModalAsync(new PingPage());
+		}
 	}
 }

@@ -12,6 +12,7 @@ namespace MobileTools.Pages
 		public GPSPage()
 		{
 			InitializeComponent();
+			MapContent.IsVisible = false;
 		}
 
 		private void btnMainPage_Clicked(object sender, EventArgs e)
@@ -28,21 +29,29 @@ namespace MobileTools.Pages
 				edtLongitude.Text = geo.Longitude.ToString();
 				edtHeight.Text = geo.Height.ToString();
 
-				if (!string.IsNullOrEmpty(edtLatitude.Text) && !string.IsNullOrEmpty(edtLongitude.Text))
+				try
 				{
-					double latitude = Double.Parse(edtLatitude.Text);
-					double longitude = Double.Parse(edtLongitude.Text);
-					
-					var map = new Map(MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(latitude, longitude), Distance.FromKilometers(20)));
-					var pin = new Pin()
+					if (!string.IsNullOrEmpty(edtLatitude.Text) && !string.IsNullOrEmpty(edtLongitude.Text))
 					{
-						Position = new Xamarin.Forms.Maps.Position(latitude, longitude),
-						Label = "Product"
-					};
-					map.Pins.Add(pin);					
-					MapContent.Content = map;
-					
-					MapContent.IsVisible = true;
+						double latitude = Double.Parse(edtLatitude.Text);
+						double longitude = Double.Parse(edtLongitude.Text);
+
+						var map = new Map(MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(latitude, longitude), Distance.FromKilometers(2)));
+						var pin = new Pin()
+						{
+							Position = new Xamarin.Forms.Maps.Position(latitude, longitude),
+							Label = "YOU"
+						};
+						map.Pins.Add(pin);
+						MapContent.Content = map;
+						MapContent.IsVisible = true;
+					}
+				}
+				catch (Exception ex)
+				{
+					slMsg.IsVisible = true;
+					msg.Text = ex.Message.ToString();
+					MapContent.IsVisible = false;
 				}
 			}
 		}

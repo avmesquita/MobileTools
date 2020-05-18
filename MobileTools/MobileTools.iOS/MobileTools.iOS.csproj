@@ -134,6 +134,9 @@
     <PackageReference Include="Xamarin.Forms.Maps">
       <Version>4.4.0.991265</Version>
     </PackageReference>
+    <PackageReference Include="ZXing.Net.Mobile">
+      <Version>2.4.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -141,5 +144,8 @@
       <Project>{7C292616-7B5C-4F00-A363-A8349150EE13}</Project>
       <Name>MobileTools</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\avm_logo.png" />
   </ItemGroup>
 </Project>

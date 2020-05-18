@@ -4,20 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MobileTools.Pages.GPSPage">
+             x:Class="MobileTools.Pages.PingPage">
     <ContentPage.Content>
 		<StackLayout>
 			<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="20">
-				<Label Text="Latitude" TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
-				<Entry x:Name="edtLatitude" TextColor="Green" FontSize="Medium" Text="" HorizontalOptions="FillAndExpand" IsReadOnly="True" />
-				<Label Text="Logitude" TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
-				<Entry x:Name="edtLongitude" TextColor="Green" FontSize="Medium" Text="" HorizontalOptions="FillAndExpand" IsReadOnly="True" />
-				<Label Text="Height" TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
-				<Entry x:Name="edtHeight" TextColor="Green" FontSize="Medium" Text="" HorizontalOptions="FillAndExpand" IsReadOnly="True" />
+				<Label Text="IP / Hostname" TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
+				<Entry x:Name="edtHostname" TextColor="Green" FontSize="Medium" Text="" HorizontalOptions="FillAndExpand" IsReadOnly="False" />
 			</StackLayout>
 			<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-				<ContentView x:Name="MapContent" IsVisible="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-				</ContentView>
+				<Grid x:Name="gridPing" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+				</Grid>
 				<StackLayout x:Name="slMsg" VerticalOptions="End" IsVisible="False">
 					<Label x:Name="msg"></Label>
 				</StackLayout>
@@ -27,7 +23,7 @@
 					<Button Text="Main Page" x:Name="btnMainPage" Image="main.jpg" Clicked="btnMainPage_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
 				</StackLayout>
 				<StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Padding="20">
-					<Button Text="Get Location" x:Name="btnGPS" Image="gps.jpg"  Clicked="btnGPS_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
+					<Button Text="Ping" x:Name="btnPing" Image="ping.jpg"  Clicked="btnPing_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
 				</StackLayout>
 			</StackLayout>
 		</StackLayout>

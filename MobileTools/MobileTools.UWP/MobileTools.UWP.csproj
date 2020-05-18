@@ -152,6 +152,9 @@
     <PackageReference Include="Xamarin.Forms.Maps">
       <Version>4.4.0.991265</Version>
     </PackageReference>
+    <PackageReference Include="ZXing.Net.Mobile">
+      <Version>2.4.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MobileTools\MobileTools.csproj">

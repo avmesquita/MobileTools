@@ -6,7 +6,7 @@ using Xamarin.Essentials;
 
 namespace MobileTools.Services.GPS
 {
-	public class GeoLocationService
+	public class GeoLocationService : IDisposable
 	{
 		public async System.Threading.Tasks.Task<GeoLocation> GetGeoLocationAsync()
 		{
@@ -44,6 +44,11 @@ namespace MobileTools.Services.GPS
 			{
 				throw ex;
 			}
+		}
+
+		public void Dispose()
+		{
+			
 		}
 	}
 }
