@@ -39,7 +39,7 @@ namespace MobileTools.Pages
 					gridPing.Children.Add(new Label
 					{
 						Padding = 2,
-						Text = ping,
+						Text = ping.ToString(),
 						HorizontalOptions = LayoutOptions.FillAndExpand,
 						VerticalOptions = LayoutOptions.FillAndExpand
 					}, 0, i);

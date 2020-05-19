@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileTools.Models;
+using System;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -19,22 +20,35 @@ namespace MobileTools.Services.Network
             p.Dispose();            
         }
 
-        public IEnumerable<string> Ping(string ip, int count)
+        public IEnumerable<PingModel> Ping(string ip, int count)
 		{            
             PingReply r;
 
-            List<string> list = new List<string>();
+            List<PingModel> list = new List<PingModel>();
 
             for (var i = 1; i <= count; i++)
             {
                 r = p.Send(ip);
+                
                 if (r.Status == IPStatus.Success)
                 {
-                    list.Add($"Ping to {ip.ToString()} [{r.Address.ToString()}] - OK - Delay = {r.RoundtripTime.ToString()} ms");
+                    list.Add(new PingModel()
+                    {
+                        IP = ip.ToString(),
+                        Address = r.Address.ToString(),
+                        Status = "OK",
+                        Delay = r.RoundtripTime.ToString()
+                    });
                 }
                 else
-                {                    
-                    list.Add($"Ping to {ip.ToString()} [{r.Address.ToString()} - {r.Status.ToString()} ");
+                {
+                    list.Add(new PingModel()
+                    {
+                        IP = ip.ToString(),
+                        Address = r.Address.ToString(),
+                        Status = r.Status.ToString(),
+                        Delay = r.RoundtripTime.ToString()
+                    });                    
                 }
             }
             return list;
