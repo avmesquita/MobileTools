@@ -38,5 +38,10 @@ namespace MobileTools
 		{
 			this.Navigation.PushModalAsync(new PingPage());
 		}
+
+		private void btnPoD_Clicked(object sender, EventArgs e)
+		{
+			this.Navigation.PushModalAsync(new PodPage());
+		}
 	}
 }

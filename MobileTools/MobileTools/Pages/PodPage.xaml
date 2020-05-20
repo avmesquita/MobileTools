@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileTools.Pages.PodPage">
+    <ContentPage.Content>
+		<StackLayout>
+			<Label Text="NASA - Pic of the day"
+                HorizontalOptions="CenterAndExpand" />
+			<Image x:Name="PodPic" Aspect="AspectFit" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+			<StackLayout Orientation="Vertical" Padding="20" BackgroundColor="Silver" VerticalOptions="End">
+				<Button Text="Back" x:Name="btnBack" Image="back.jpg"  Clicked="btnBack_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
+			</StackLayout>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
