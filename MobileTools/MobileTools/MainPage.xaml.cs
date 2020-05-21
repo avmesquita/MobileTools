@@ -43,5 +43,10 @@ namespace MobileTools
 		{
 			this.Navigation.PushModalAsync(new PodPage());
 		}
+
+		private void btnQuit_Clicked(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+		}
 	}
 }

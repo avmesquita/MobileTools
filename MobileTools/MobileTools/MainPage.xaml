@@ -31,12 +31,17 @@
 			</StackLayout>
 		</StackLayout>
 
-
 		<StackLayout VerticalOptions="CenterAndExpand">
 
 		</StackLayout>
-		<StackLayout Orientation="Vertical" Padding="20" BackgroundColor="Silver" VerticalOptions="End">
-			<Button Text="About" x:Name="btnAbout" Image="about.jpg" Clicked="btnAbout_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5"/>
+
+		<StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="Silver">
+			<StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Padding="20">
+				<Button Text="About" x:Name="btnAbout" Image="about.jpg" Clicked="btnAbout_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5"/>
+			</StackLayout>
+			<StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Padding="20">
+				<Button Text="Quit" x:Name="btnQuit" Image="quit.jpg"  Clicked="btnQuit_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
+			</StackLayout>
 		</StackLayout>
 	</StackLayout>
 </ContentPage>

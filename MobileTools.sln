@@ -9,7 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTools.Android", "Mobi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTools.iOS", "MobileTools\MobileTools.iOS\MobileTools.iOS.csproj", "{BFF2B44F-B246-4DD7-A9C0-26EE6B2C4CAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTools", "MobileTools\MobileTools\MobileTools.csproj", "{8691436F-0A06-4166-AD48-063F2FB07244}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileTools", "MobileTools\MobileTools\MobileTools.csproj", "{8691436F-0A06-4166-AD48-063F2FB07244}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A92F8A2F-BE77-4C82-8C56-B8E7F246D2AC}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
