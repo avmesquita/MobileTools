@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileTools.Pages.UserSettingsPage">
+    <ContentPage.Content>
+        <StackLayout>
+			<StackLayout>
+				<Label Text="User"
+                HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Header"/>
+				<Label Text="Settings"
+                HorizontalOptions="CenterAndExpand" FontSize="Medium" />
+			</StackLayout>
+			<StackLayout Padding="20">
+				<Label Text="Google API Key" />
+				<Entry x:Name="edtGoogleApiKey" Text="" />
+			</StackLayout>
+			<StackLayout Padding="20">
+				<Label Text="NASA API Key" />
+				<Entry x:Name="edtNasaApiKey" Text="" />
+			</StackLayout>
+
+			<StackLayout VerticalOptions="CenterAndExpand">
+
+			</StackLayout>
+
+			<StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="Silver">
+				<StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Padding="20">
+					<Button Text="Save" x:Name="btnSave" Image="save.jpg" Clicked="btnSave_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5"/>
+				</StackLayout>
+				<StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Padding="20">
+					<Button Text="Back" x:Name="btnBack" Image="back.jpg"  Clicked="btnBack_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
+				</StackLayout>
+			</StackLayout>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

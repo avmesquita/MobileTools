@@ -22,7 +22,15 @@ namespace MobileTools.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+            var bundle = PackageManager.GetApplicationInfo(PackageName,
+                                               Android.Content.PM.PackageInfoFlags.MetaData).MetaData;
+
+            var gmapsApiKey = App.userData != null ? App.userData.GoogleApiKey : "";
+            
+            bundle.PutString("com.google.android.geo.API_KEY", $"{gmapsApiKey}");
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

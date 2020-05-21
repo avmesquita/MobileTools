@@ -28,6 +28,10 @@
 				<StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Padding="20">
 					<Button Text="Pic of the day" x:Name="btnPoD" Clicked="btnPoD_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
 				</StackLayout>
+				<StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Padding="20">
+					<Button Text="Settings" x:Name="btnSettings" Clicked="btnSettings_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
+				</StackLayout>
+
 			</StackLayout>
 		</StackLayout>
 

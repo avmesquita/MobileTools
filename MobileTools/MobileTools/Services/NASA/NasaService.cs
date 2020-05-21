@@ -9,7 +9,8 @@ namespace MobileTools.Services.NASA
 {
 	public class NasaService
 	{
-		private string api_key = "DEMO_KEY";
+		protected string api_key { get { return App.userData != null ? App.userData.NasaApiKey : ""; } }
+
 		private string apodEndpoint = "https://api.nasa.gov/planetary/apod";
 
 		#region [ Astronomic Pic of the Day ]
@@ -76,7 +77,7 @@ namespace MobileTools.Services.NASA
 				if (string.IsNullOrEmpty(apod.hdurl))
 					return this.getImageFromURL(apod.url);
 				else
-					return this.getImageFromURL(apod.hdurl);				
+					return this.getImageFromURL(apod.hdurl);
 			}
 			else
 			{

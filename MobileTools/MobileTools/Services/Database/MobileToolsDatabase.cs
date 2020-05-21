@@ -47,5 +47,37 @@ namespace MobileTools.Services.Database
 		}
 
 		#endregion
+
+		#region [ USER CONFIGURATION ]
+
+		public Task<UserConfiguration> GetUserConfigurationAsync()
+		{
+			return Database.Table<UserConfiguration>().FirstOrDefaultAsync();
+		}
+
+
+		public Task<int> SaveUserConfigurationAsync(UserConfiguration item)
+		{
+			var user = this.GetUserConfigurationAsync().Result;
+
+			if (user != null)
+			{
+				item.Id = user.Id;
+				item.Guid = user.Guid;
+
+				return Database.UpdateAsync(item);
+			}
+			else
+			{
+				return Database.InsertAsync(item);
+			}
+		}
+
+		public Task<int> DeleteUserConfigurationAsync(UserConfiguration item)
+		{
+			return Database.DeleteAsync(item);
+		}
+
+		#endregion
 	}
 }

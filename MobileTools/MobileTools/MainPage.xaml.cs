@@ -1,4 +1,6 @@
-﻿using MobileTools.Pages;
+﻿using MobileTools.Models;
+using MobileTools.Pages;
+using MobileTools.Services.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +18,7 @@ namespace MobileTools
 	{
 		public MainPage()
 		{
-			InitializeComponent();
+			InitializeComponent();			
 		}
 
 		private void btnAbout_Clicked(object sender, EventArgs e)
@@ -47,6 +49,11 @@ namespace MobileTools
 		private void btnQuit_Clicked(object sender, EventArgs e)
 		{
 			System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+		}
+
+		private void btnSettings_Clicked(object sender, EventArgs e)
+		{
+			this.Navigation.PushModalAsync(new UserSettingsPage());
 		}
 	}
 }
