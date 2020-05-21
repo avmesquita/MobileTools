@@ -7,9 +7,15 @@
              x:Class="MobileTools.Pages.PodPage">
     <ContentPage.Content>
 		<StackLayout>
-			<Label Text="NASA - Pic of the day"
-                HorizontalOptions="CenterAndExpand" />
+			<Label Text="NASA"
+                HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Header"/>
+			<Label Text="Astrononic Pic of the Day"
+                HorizontalOptions="CenterAndExpand" FontSize="Medium" />
+
+			<DatePicker x:Name="edtDate" HorizontalOptions="Center"  DateSelected="OnDateChanged_Event"/>
+			
 			<Image x:Name="PodPic" Aspect="AspectFit" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+			
 			<StackLayout Orientation="Vertical" Padding="20" BackgroundColor="Silver" VerticalOptions="End">
 				<Button Text="Back" x:Name="btnBack" Image="back.jpg"  Clicked="btnBack_Clicked" TextColor="White" BackgroundColor="Gray" BorderWidth="5" BorderColor="Gray" CornerRadius="5" />
 			</StackLayout>

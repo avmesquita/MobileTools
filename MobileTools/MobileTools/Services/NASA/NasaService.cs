@@ -9,17 +9,26 @@ namespace MobileTools.Services.NASA
 {
 	public class NasaService
 	{
-		private async System.Threading.Tasks.Task<NasaAPOD> getAPODAsync()
-		{
-			var obj = new
-			{
-				url = "https://api.nasa.gov/planetary/apod",
-				date = DateTime.Now.ToString("yyyy-MM-dd"),
-                hd = true,
-                api_key = "DEMO_KEY"
-			};			
+		private string api_key = "DEMO_KEY";
+		private string apodEndpoint = "https://api.nasa.gov/planetary/apod";
 
-			string endpoint = $"{obj.url}?api_key={obj.api_key}&date={obj.date}&hd={obj.hd.ToString().ToLower()}";
+		#region [ Astronomic Pic of the Day ]
+
+		private async System.Threading.Tasks.Task<NasaAPOD> getAPODAsync(bool isHD = false, DateTime? date = null)
+		{
+
+			string endpoint = string.Empty;
+
+			if (date == null)
+			{
+				endpoint = $"{this.apodEndpoint}?api_key={this.api_key}&hd={isHD.ToString().ToLower()}";
+			}
+			else
+			{
+				var data = Convert.ToDateTime(date);
+
+				endpoint = $"{this.apodEndpoint}?api_key={this.api_key}&hd={isHD.ToString().ToLower()}&date={data.ToString("yyyy-MM-dd")}";
+			}
 
 			using (var client = new HttpClient(new System.Net.Http.HttpClientHandler()))
 			{
@@ -31,21 +40,24 @@ namespace MobileTools.Services.NASA
 			}
 		}
 
-		private NasaAPOD getAPOD()
+		private NasaAPOD getAPOD(bool isHD = false, DateTime? date = null)
 		{
-			var obj = new
-			{
-				url = "https://api.nasa.gov/planetary/apod",
-				date = DateTime.Now.ToString("yyyy-MM-dd"),
-				hd = true,
-				api_key = "DEMO_KEY"
-			};
+			string endpoint = string.Empty;
 
-			string endpoint = $"{obj.url}?api_key={obj.api_key}"; // &date={obj.date}&hd={obj.hd.ToString().ToLower()}";
+			if (date == null)
+			{
+				endpoint = $"{this.apodEndpoint}?api_key={this.api_key}&hd={isHD.ToString().ToLower()}";
+			}
+			else
+			{
+				var data = Convert.ToDateTime(date);
+
+				endpoint = $"{this.apodEndpoint}?api_key={this.api_key}&hd={isHD.ToString().ToLower()}&date={data.ToString("yyyy-MM-dd")}";
+			}
 
 			using (var client = new HttpClient(new System.Net.Http.HttpClientHandler()))
 			{
-				var result =  client.GetAsync(endpoint);
+				var result = client.GetAsync(endpoint);
 
 				var retobj = result.Result.Content.ReadAsStringAsync();
 
@@ -55,22 +67,44 @@ namespace MobileTools.Services.NASA
 			}
 		}
 
-		public byte[] getAstronomicPicOfDay()
+		public byte[] getAstronomicPicOfDay(bool isHD = false, DateTime? date = null)
 		{
-			var apod = this.getAPOD();
+			var apod = this.getAPOD(isHD, date);
 
-			return this.getImageFromURL(apod.hdurl);		
+			if (isHD)
+			{
+				if (string.IsNullOrEmpty(apod.hdurl))
+					return this.getImageFromURL(apod.url);
+				else
+					return this.getImageFromURL(apod.hdurl);				
+			}
+			else
+			{
+				if (string.IsNullOrEmpty(apod.url))
+					return this.getImageFromURL(apod.hdurl);
+				else
+					return this.getImageFromURL(apod.url);
+			}
 		}
 
 		private byte[] getImageFromURL(string url)
 		{
-			using (var client = new HttpClient(new System.Net.Http.HttpClientHandler()))
+			try
 			{
-				var result = client.GetByteArrayAsync(url);
-								
-				return result.Result;
+				using (var client = new HttpClient(new System.Net.Http.HttpClientHandler()))
+				{
+					var result = client.GetByteArrayAsync(url);
+
+					return result.Result;
+				}
+			}
+			catch
+			{
+				return null;
 			}
 		}
+
+		#endregion
 
 	}
 }

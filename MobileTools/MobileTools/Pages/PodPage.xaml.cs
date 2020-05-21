@@ -17,7 +17,10 @@ namespace MobileTools.Pages
 		public PodPage()
 		{
 			InitializeComponent();
-			
+
+			edtDate.MaximumDate = DateTime.Now;			
+			edtDate.Date = DateTime.Now;
+
 			var image = new NasaService().getAstronomicPicOfDay();
 			var img = ImageSource.FromStream(() => new MemoryStream(image));
 			PodPic.Source = img;			
@@ -26,6 +29,13 @@ namespace MobileTools.Pages
 		private void btnBack_Clicked(object sender, EventArgs e)
 		{
 			this.Navigation.PushModalAsync(new MainPage());
+		}
+
+		private void OnDateChanged_Event(object sender, DateChangedEventArgs e)
+		{
+			var image = new NasaService().getAstronomicPicOfDay(false,edtDate.Date);
+			var img = ImageSource.FromStream(() => new MemoryStream(image));
+			PodPic.Source = img;
 		}
 	}
 }
